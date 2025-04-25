@@ -7,12 +7,11 @@ class Usuario{
     private $pdo;
 
     // o método construtor é o que inicia antes da classe
-    public function __contruct(){
+    public function __construct(){
         //PDO -> Objetos de banco de dados em PHP (caminho, usuario, senha)
         $dns = "mysql:dbname=usuariopwii;host=localhost";
         $dbUser = "root";
         $dbPass = "";
-        
         try{
             $this->pdo = new PDO ($dns, $dbUser, $dbPass);
             return true;
@@ -37,7 +36,7 @@ class Usuario{
         $stmt->bindValue(":s",$senha);
 
         //passo 4 executar a query
-        $stmt->execute();
+        return $stmt->execute();
 
     }
 }
